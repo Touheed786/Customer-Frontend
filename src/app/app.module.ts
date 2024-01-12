@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustlistComponent } from './custlist/custlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerComponent
+    CustomerComponent,
+    CustlistComponent
   ],
   imports: [
     BrowserModule,

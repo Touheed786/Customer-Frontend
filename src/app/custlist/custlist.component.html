@@ -1,0 +1,25 @@
+<div *ngIf="AllCustomer else nothing">
+    <table border="2px">
+        <thead>
+           <th>ID</th>
+           <th>Name</th>
+           <th>Email</th>
+            <th>Date of Birth</th>
+           <th>Occupation</th>
+           <th>Customer Group</th>  
+        </thead>
+        <tr *ngFor="let customer of AllCustomer">
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.dob | date }}</td>
+            <td>{{ customer.occupation }}</td>
+            <td>{{ customer.cust_group }}</td>
+            
+    </tr>
+    </table>
+  </div>
+
+  <ng-template #nothing>
+    <h1>no Data</h1>
+  </ng-template>

@@ -13,4 +13,8 @@ export class CustomerService {
   {
     return this.httpClient.post(`${this.url}/customer/create`,customer)
   }
+  public getCustomers()
+  {
+    return this.httpClient.get(`${this.url}/customer/`)
+  }
 }
