@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Customer } from '../customer.model';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customer',
@@ -7,10 +9,21 @@ import { Component } from '@angular/core';
 })
 export class CustomerComponent {
 
+  constructor(private custService:CustomerService){}
+  ngOnInit(){}
 
-  submitForm(formData: any): void {
-    // You can perform further actions with the form data
-    // For simplicity, we'll just log the data to the console in this example
-    console.log('Form Data:', formData);
+  CustomerData:any = new Customer();
+  occupationOptions: string[] = ['developer', 'chef', 'plumber','carpenter','other'];
+  customerGroup: string[] = ['hikeon', 'chef', 'developer','NA'];
+
+
+  submitForm() {
+   
+    this.custService.createCustomer(this.CustomerData).subscribe((data)=>{
+      console.log(data)
+    },(error)=>{
+      console.log(error)
+    })
+    
   }
 }

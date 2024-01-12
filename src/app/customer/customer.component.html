@@ -1,29 +1,23 @@
 <div>
     <h2>User Information Form</h2>
-    <form #userForm="ngForm" (ngSubmit)="submitForm(userForm.value)">
-      <label for="id">ID:</label>
-      <input type="text" id="id" name="id" ngModel required>
+    <form (ngSubmit)="submitForm()">
   
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" ngModel required>
+      <input type="text" id="name" name="name" [(ngModel)]="CustomerData.name" required>
   
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" ngModel required>
+      <input type="email" id="email" name="email" [(ngModel)]="CustomerData.email" required>
   
       <label for="dob">Date of Birth:</label>
-      <input type="date" id="dob" name="dob" ngModel required>
+      <input type="date" id="dob" name="dob" [(ngModel)]="CustomerData.dob" required>
   
       <label for="occupation">Occupation:</label>
-      <input type="text" id="occupation" name="occupation" ngModel required>
-  
+      <select id="occupation" [(ngModel)]="CustomerData.occupation">
+        <option *ngFor="let option of occupationOptions" [value]="option">{{ option }}</option>
+      </select>
       <label for="cust_group">Customer Group:</label>
-      <select id="cust_group" name="cust_group" ngModel required>
-        <option value="Group A">developer</option>
-        <option value="Group B">chef</option>
-        <option value="Group C">plumber</option>
-        <option value="Group C">carpenter</option>
-        <option value="Group C">other</option>
-        <!-- Add more options if needed -->
+      <select id="cust_group" name="cust_group" [(ngModel)]="CustomerData.cust_group" required>
+        <option *ngFor="let option of customerGroup" [value]="option">{{ option }}</option>
       </select>
   
       <button type="submit">Submit</button>
